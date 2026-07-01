@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 160" width="300" height="160">
+  <ellipse cx="110" cy="80" rx="95" ry="60" fill="#a52a3f" opacity="0.9"/>
+  <ellipse cx="150" cy="80" rx="95" ry="60" fill="#1c2331" opacity="0.9"/>
+  <ellipse cx="190" cy="80" rx="95" ry="60" fill="#5b7fa6" opacity="0.9"/>
+  <text x="150" y="90" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="28" fill="#f4f1ea" letter-spacing="2">G3</text>
+  <text x="150" y="112" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="600" font-size="11" fill="#f4f1ea" letter-spacing="3">COMMUNICATIONS</text>
+</svg>
