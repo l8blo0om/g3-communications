@@ -1,3 +1,9 @@
+@property --hue {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 211;
+}
+
 :root {
   --navy: #1c2331;
   --navy-deep: #12161f;
@@ -6,6 +12,18 @@
   --cream: #f4f1ea;
   --ink: #23262f;
   --muted: #6b7280;
+  --hue: 211;
+}
+
+/* brand-safe hue cycle: oscillates between blue (211) and red (350) only,
+   never crosses green/yellow */
+.hero h1 span {
+  animation: brand-huecycle 9s ease-in-out infinite;
+}
+
+@keyframes brand-huecycle {
+  0%, 100% { --hue: 211; color: hsl(var(--hue) 45% 65%); }
+  50% { --hue: 350; color: hsl(var(--hue) 45% 65%); }
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
