@@ -205,10 +205,18 @@
     <a href="https://www.facebook.com/people/G3-Communications/61563847655896/" target="_blank" rel="noopener">Facebook</a>
   </div>
   <p>&copy; <span id="year"></span> G3 Communications. All rights reserved.</p>
+  <p class="visit-counter" id="visitCounter"></p>
 </footer>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  fetch('/.netlify/functions/counter')
+    .then(r => r.json())
+    .then(data => {
+      document.getElementById('visitCounter').textContent = data.visits.toLocaleString() + ' visits';
+    })
+    .catch(() => {});
 
   const header = document.getElementById('site-header');
   window.addEventListener('scroll', () => {
@@ -227,5 +235,6 @@
   }));
 </script>
 
+<script data-goatcounter="https://g3communications.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

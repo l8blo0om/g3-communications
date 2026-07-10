@@ -556,3 +556,9 @@ footer a { color: var(--blue); text-decoration: none; font-weight: 500; }
 footer a:hover { color: var(--cream); }
 
 footer p { font-size: 0.85rem; }
+
+.visit-counter {
+  font-size: 0.7rem;
+  opacity: 0.4;
+  margin-top: 0.35rem;
+}
