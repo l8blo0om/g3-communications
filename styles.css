@@ -246,6 +246,31 @@ nav a:not(.nav-cta):hover::after { width: 100%; }
 
 .btn-ghost:hover { border-color: var(--cream); transform: translateY(-2px); }
 
+/* glowing outlined button that breathes — synced to the brand hue cycle (blue<->red only) */
+.btn-glow {
+  background: var(--navy-deep);
+  color: var(--cream);
+  border: none;
+  box-shadow: 0 0 0 1.5px hsl(var(--hue) 55% 55%), 0 0 22px hsl(var(--hue) 55% 55% / .3);
+  animation: breathe 3s ease-in-out infinite;
+}
+
+.btn-glow:hover { background: hsl(var(--hue) 45% 30%); color: var(--cream); }
+
+@keyframes breathe {
+  0%, 100% { box-shadow: 0 0 0 1.5px hsl(var(--hue) 55% 55%), 0 0 18px hsl(var(--hue) 55% 55% / .25); }
+  50% { box-shadow: 0 0 0 1.5px hsl(var(--hue) 55% 55%), 0 0 32px hsl(var(--hue) 55% 55% / .5); }
+}
+
+/* glowing hairline — fixed brand gradient, not hue-offset (avoids drifting into off-brand hues) */
+.glow-line {
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--blue), var(--red), var(--blue)) 1;
+}
+
+/* accent text (eyebrows, highlights) — rides the same blue<->red cycle as "Handled." */
+.accent { color: hsl(var(--hue) 55% 55%); }
+
 .scroll-cue {
   position: absolute;
   bottom: 2rem;
