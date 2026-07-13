@@ -22,8 +22,8 @@
 }
 
 @keyframes brand-huecycle {
-  0%, 100% { --hue: 211; color: hsl(var(--hue) 45% 65%); }
-  50% { --hue: 350; color: hsl(var(--hue) 45% 65%); }
+  0%, 100% { --hue: 211; color: hsl(var(--hue) 80% 68%); }
+  50% { --hue: 350; color: hsl(var(--hue) 80% 68%); }
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -248,18 +248,18 @@ nav a:not(.nav-cta):hover::after { width: 100%; }
 
 /* glowing outlined button that breathes — synced to the brand hue cycle (blue<->red only) */
 .btn-glow {
-  background: var(--navy-deep);
+  background: #0a0e16;
   color: var(--cream);
   border: none;
-  box-shadow: 0 0 0 1.5px hsl(var(--hue) 55% 55%), 0 0 22px hsl(var(--hue) 55% 55% / .3);
+  box-shadow: 0 0 0 1.5px hsl(var(--hue) 85% 60%), 0 0 22px hsl(var(--hue) 85% 58% / .5);
   animation: breathe 3s ease-in-out infinite;
 }
 
-.btn-glow:hover { background: hsl(var(--hue) 45% 30%); color: var(--cream); }
+.btn-glow:hover { background: hsl(var(--hue) 85% 58%); color: #0a0e16; }
 
 @keyframes breathe {
-  0%, 100% { box-shadow: 0 0 0 1.5px hsl(var(--hue) 55% 55%), 0 0 18px hsl(var(--hue) 55% 55% / .25); }
-  50% { box-shadow: 0 0 0 1.5px hsl(var(--hue) 55% 55%), 0 0 32px hsl(var(--hue) 55% 55% / .5); }
+  0%, 100% { box-shadow: 0 0 0 1.5px hsl(var(--hue) 85% 60%), 0 0 18px hsl(var(--hue) 85% 58% / .35); }
+  50% { box-shadow: 0 0 0 1.5px hsl(var(--hue) 85% 60%), 0 0 34px hsl(var(--hue) 85% 58% / .7); }
 }
 
 /* glowing hairline — fixed brand gradient, not hue-offset (avoids drifting into off-brand hues) */
@@ -269,7 +269,7 @@ nav a:not(.nav-cta):hover::after { width: 100%; }
 }
 
 /* accent text (eyebrows, highlights) — rides the same blue<->red cycle as "Handled." */
-.accent { color: hsl(var(--hue) 55% 55%); }
+.accent { color: hsl(var(--hue) 85% 62%); }
 
 .scroll-cue {
   position: absolute;
@@ -345,10 +345,12 @@ section h2 {
 
 /* Feature strip */
 .feature-strip {
-  max-width: none;
-  padding: 0;
+  max-width: 1080px;
+  padding: 0 1.5rem 5.5rem;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
 }
 
 .feature-item {
@@ -357,6 +359,8 @@ section h2 {
   display: flex;
   align-items: flex-end;
   overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(23,28,41,0.12);
 }
 
 .feature-item img {
