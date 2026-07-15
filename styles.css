@@ -42,6 +42,14 @@ h1, h2, h3 {
   font-family: "Poppins", "Segoe UI", Arial, Helvetica, sans-serif;
 }
 
+.hero h1,
+section h2 {
+  font-family: "Anton", "Poppins", "Segoe UI", Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+}
+
 a { color: inherit; }
 
 img { display: block; max-width: 100%; }
@@ -288,6 +296,34 @@ nav a:not(.nav-cta):hover::after { width: 100%; }
 
 /* Sections */
 section:not(.hero) { padding: 5.5rem 1.5rem; max-width: 1080px; margin: 0 auto; }
+
+/* Stat row */
+section.stat-row {
+  max-width: none;
+  padding: 3rem 1.5rem;
+  margin: 0;
+  background: var(--navy-deep);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+
+.stat-number {
+  font-family: "Anton", "Poppins", sans-serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  color: hsl(var(--hue) 55% 55%);
+  line-height: 1;
+  margin-bottom: 0.6rem;
+}
+
+.stat-label {
+  color: var(--cream);
+  opacity: 0.75;
+  font-size: 0.85rem;
+  max-width: 200px;
+  margin: 0 auto;
+}
 
 section h2 {
   text-align: center;

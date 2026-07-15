@@ -25,7 +25,7 @@
 <link rel="icon" href="images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 
 <script type="application/ld+json">
@@ -89,6 +89,25 @@
   <a class="scroll-cue" href="#services" aria-label="Scroll to services">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 4v14m0 0l-6-6m6 6l6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </a>
+</section>
+
+<section class="stat-row">
+  <div class="stat-item">
+    <p class="stat-number">3-in-1</p>
+    <p class="stat-label">Cameras, phones &amp; wireless — one team</p>
+  </div>
+  <div class="stat-item">
+    <p class="stat-number"><span class="stat-count" data-target="0">0</span></p>
+    <p class="stat-label">Surprise fees on your quote</p>
+  </div>
+  <div class="stat-item">
+    <p class="stat-number"><span class="stat-count" data-target="1">0</span></p>
+    <p class="stat-label">Point of contact, start to finish</p>
+  </div>
+  <div class="stat-item">
+    <p class="stat-number"><span class="stat-count" data-target="100">0</span>%</p>
+    <p class="stat-label">Locally owned &amp; operated</p>
+  </div>
 </section>
 
 <section id="services">
@@ -210,6 +229,30 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  const statCounts = document.querySelectorAll('.stat-count');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const animateCount = (el) => {
+    const target = parseInt(el.dataset.target, 10);
+    if (prefersReducedMotion) { el.textContent = target; return; }
+    const duration = 1200;
+    const start = performance.now();
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      el.textContent = Math.round(target * progress);
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCount(entry.target);
+        statObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  statCounts.forEach(el => statObserver.observe(el));
 
   fetch('/.netlify/functions/counter')
     .then(r => r.json())
